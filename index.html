@@ -1,19 +1,83 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <title>Hello, World!</title>
+  <title></title>
 </head>
 <body>
-  <h1>
-    Hello, World!
-  </h1>
-  <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="MultiVerse_tgbot" data-size="large" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
-<script type="text/javascript">
-  function onTelegramAuth(user) {
-    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+  <style>
+  
+  :root {
+    --bg-color: #ffffff;
+    --btn-color: #303030;
+    --txt-color: #ffffff;
   }
+  
+  [data-theme="dark"] {
+    --bg-color: #101529;
+    --btn-color: #ffffff;
+    --txt-color: #303030
+  }
+  
+  body {
+    background-color: var(--bg-color);
+  }
+  
+  #themeButton {
+    width: 40px;
+    height: 40px;
+    font-size: 9px;
+    transform: translate3d(225px, -90px, 0px)
+  }
+  
+  button {
+    width: auto;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--btn-color);
+    color: var(--txt-color)
+  }
+  
+  h1, h2, h3, h4, h5, h6, p {
+    color: white;
+  }
+  
+  header {
+    transform: translateY(-23px);
+    color: white;
+    margin: 0 auto 20px auto;
+    background-color: black;
+    opacity: 0.7;
+    height: 60px;
+    width: 200px;
+    border-radius: 0px 0px 25px 25px;
+    position: sticky;
+  }
+  
+  .subtitle {
+    transform: translateY(-20px)
+  }
+  
+  </style>
+  <header>
+  <h1 align="center" class="title">MultiVerse</h1>
+  <h5 align="center" class="subtitle">Tools for developers</h5>
+    <button id="themeButton">Theme</button>
+  </header>
+<script>
+  const themeButton = document.getElementById('themeButton');
+        const body = document.body;
+
+        themeButton.addEventListener('click', function() {
+            const isDark = body.getAttribute('data-theme') === 'dark';
+            
+            if (isDark) {
+                body.setAttribute('data-theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        });
+
 </script>
 </body>
 </html>
